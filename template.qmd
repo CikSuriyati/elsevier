@@ -107,6 +107,14 @@ In research and survey design, Cronbach’s alpha is
 
 ## Explanatory Analysis
 
+```{r}
+library(haven)
+library(readr)
+data<-read_sav("/Users/a434193/Downloads/STA220_GROUP 6.sav")
+write_csv(x=data, path="data2.csv")
+data3<-read.csv("data2.csv", stringsAsFactors = TRUE)
+str(data3)
+```
 
 
 # Bibliography styles

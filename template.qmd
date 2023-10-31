@@ -1,46 +1,45 @@
 ---
-title: Short Paper
-subtitle: A Short Subtitle
+title: Factors That Affecting the Preferences of Mode of Payment in Melaka Tengah, Malaysia
 author:
-  - name: Alice Anonymous
-    email: alice@example.com
+  - name: Muhamad Nabil Bin Zulkarnain
     affiliations: 
-        - id: some-tech
-          name: Some Institute of Technology
-          department: Department Name
-          address: Street Address
-          city: City
-          state: State
-          postal-code: Postal Code
+        - id: uitm
+          name: Pusat Pengajian Matematik
+          address: Universiti Teknologi MARA Cawangan Pahang
+          postal-code:  Pahang, Malaysia
+          city: 27600, Raub
+    attributes:
+        corresponding: false
+    note: This is the first author footnote.
+  - name: Muhammad Irsyaduddin Bin Mohd Tajudin
+    affiliations:
+        - ref: uitm
+    note: |
+      Another author footnote, this is a very long footnote and it should be a really long footnote. 
+  - name: Nur Najibah Binti Hairol Hisham
+    affiliations:
+        - ref: uitm
+    note: Yet another author footnote.
+  - name: Hanis Aqila Binti Haniff
+    affiliations:
+        - ref: uitm
+  - name: Nurhaizaitul Auni Binti Rizuan
+    affiliations:
+        - ref: uitm 
+  - name: Suriyati Ujang
+    email: suriyatiujang@uitm.edu.my
+    affiliations: 
+        - ref: uitm
     attributes:
         corresponding: true
-    note: This is the first author footnote.
-  - name: Bob Security
-    email: bob@example.com
-    affiliations:
-        - id: another-u
-          name: Another University
-          department: Department Name
-          address: Street Address
-          city: City
-          state: State
-          postal-code: Postal Code
-    note: |
-      Another author footnote, this is a very long footnote and it should be a really long footnote. But this footnote is not yet sufficiently long enough to make two lines of footnote text.
-  - name: Cat Memes
-    email: cat@example.com
-    affiliations:
-        - ref: another-u
-    note: Yet another author footnote.
-  - name: Derek Zoolander
-    email: derek@example.com
-    affilations:
-        - ref: some-tech
 abstract: |
-  This is the abstract. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum augue turpis, dictum non malesuada a, volutpat eget velit. Nam placerat turpis purus, eu tristique ex tincidunt et. Mauris sed augue eget turpis ultrices tincidunt. Sed et mi in leo porta egestas. Aliquam non laoreet velit. Nunc quis ex vitae eros aliquet auctor nec ac libero. Duis laoreet sapien eu mi luctus, in bibendum leo molestie. Sed hendrerit diam diam, ac dapibus nisl volutpat vitae. Aliquam bibendum varius libero, eu efficitur justo rutrum at. Sed at tempus elit.
+ Overview of the study area emphasizing the significance of comprehending the variables determining preferences for various payment methods and the consequences of advancing cashless payment systems. Considering a discussion of previous findings and the identifi- cation of research gaps, a detailed review of the available research is offered on security concerns, income, financial literacy, age, gender, and preferences for payment methods. The methodology provides an overview of the data gathering and study design processes, includ- ing sample selection, survey questionnaire creation, and statistical analysis methods used to look at the correlations between variables. The results of the study are presented in this chapter, along with links between security concerns, income, financial knowledge, age, gen- der, and preferences for various payment methods, all of which are supported by statistical analysis and appropriate charts and tables. This report draws on the research findings to provide a thorough conclusion that highlights the impact of security concerns, income, finan- cial literacy, age, and gender on preferences for modes of payment. The study’s interesting results show that 42.54% of respondents in Melaka Tengah use cash and that 57.46% are more inclined to embrace cashless payment methods.
 keywords: 
-  - keyword1
-  - keyword2
+  - cashless
+  - payment
+  - preference
+  - socioeconomic
+  - financial knowledge
 date: last-modified
 bibliography: bibliography.bib
 format:
@@ -53,37 +52,82 @@ format:
       cite-style: super
 ---
 
-Please make sure that your manuscript follows the guidelines in the 
-Guide for Authors of the relevant journal. It is not necessary to 
-typeset your manuscript in exactly the same way as an article, 
-unless you are submitting to a camera-ready copy (CRC) journal.
+# Introduction
 
-For detailed instructions regarding the elsevier article class, see   <https://www.elsevier.com/authors/policies-and-guidelines/latex-instructions>
+Preference mode of payment refers to the precise decisions people make when deciding how to perform financial transactions. It includes cash, credit, and debit cards, internet banking, electronic transfers, digital wallets, and mobile payments. Individual payment choices are determined by aspects such as convenience, security concerns, financial knowledge, and income Smith (2018); Johnson et al. (2020). Understanding these preferences enables enterprises and financial institutions to adapt to clients' different demands and deliver payment solutions that match their choices and priorities.
+
+Security is a very important part of using and adopting digital technologies, especially when it comes to money transfers. Digital payment systems have become an important part of everyday life as e-commerce and mobile gadgets become more popular. But the fact that users think these systems pose security risks has made it harder for them to be used and adopted. These worries can be caused by many things, such as the real or imagined fear of fraud, and cyber threats. How users feel about security risks affects how much they trust and use digital payment methods. So, users will be more likely to use and adopt digital payment systems if they understand security issues. Several studies have looked at security worries and how they affect the use and spread of digital payment systems. For example, Alalwan et al. (2018) found that users were much less likely to use mobile payment systems because they were worried about security. Another study by Yousafzai et al. (2009) found that one of the main reasons people don't use e-commerce is because they are worried about security. In conclusion, users' worries about security are a major factor in whether they use digital payment methods. Payment providers need to address users' concerns about security to build their trust and faith in digital payment systems. This can lead to more people using and adopting digital payment systems.
+
+Next, the income variable is a key part of figuring out how people prefer to pay with different methods. The amount of money someone makes has a big impact on their ability to pay for things and can affect how they choose to do so. Dubey, Gunasekaran, and Childe (2019) research looked at how wealth affects how people choose to pay for things. The study found that people with higher incomes were more likely to use online banking and mobile payments because they had more money and were more comfortable with digital transfers. On the other hand, people with less money were more likely to pay for things with cash. Also, Jayawardhena, Souchon, and Farrell (2007) looked at the link between income and how people like to pay with credit cards. The results showed that people with higher incomes were more likely to own and use credit cards because they had the means to handle credit and buy bigger things. These studies show how important it is to look at income as a key variable when studying how people like to pay because it affects people's access to money and how comfortable they are with different payment methods.
+
+Furthermore, financial knowledge determines the payment methods that individuals and businesses consume. Individuals' financial knowledge refers to their knowledge and grasp of financial concepts such as budgeting, saving, investing, and borrowing. Individuals with a high level of financial literacy are more likely to make informed financial decisions, such as selecting the best payment options. They are more qualified to weigh the advantages and disadvantages of various payment methods, such as cash, credit cards, debit cards, mobile payments, and online payment platforms. Individuals with insufficient knowledge of finances, on the other hand, might fail to understand the differences between payment methods and may make decisions that are not in their best interests. They may be more at risk of financial scams and may be unaware of how to safeguard their financial information while using certain payment methods. It is vital to highlight that knowledge of finances is important not just for individuals but also for businesses. Moreover, in a study by Lusardi and Mitchell (2014) lack of knowledge about finances is an increasing problem in many nations, including the United States. According to the study, almost three-quarters of Americans were unable to respond to simple questions about financial concepts like interest rates, inflation, and risk balancing. Additionally, an analysis by Liao and Chen (2020), found that only 60% of persons in OECD nations possess the most fundamental knowledge of finance. Companies with a high level of financial knowledge are better equipped to manage their finances and make sensible financial decisions, such as selecting the best payment solutions for their needs. In summary, knowledge of finance is essential in today's fast-paced economy, as payment alternatives are becoming more diverse and sophisticated. Individuals and businesses can benefit from improved financial knowledge. [@chen2019]
+
+In this era of modernity, technology is developing so much that it causes the development of several payment methods made by an individual. One of the important factors that affect the preferences mode of payment made by an individual is age, age is an important factor that influences an individual's selection of a preferred payment method, as it shapes their level of exposure to technology and comfort with different payment options Dwivedi et al. (2020). Different age groups have grown up with different technological advancements and have different experiences and perceptions of transactions. The choice of payment method within these groups can vary due to differences in exposure and the way individuals acquire knowledge about available payment methods Jalilvand et al. (2021). For example, the younger generation is now more exposed to and influenced by payment methods that have developed such as payment through mobile phones, ATM cards, and more. But for the previous generation, they are more comfortable using cash payments. Since the previous generation was not exposed to the development of technology for payment methods, they became ignorant of more effective payment methods and did not develop. Age can be categorized as either child, teenagers, adults, and the elderly, so the choice of payment method can change due to exposure and the way they obtain a method that is more pleasing to them. Therefore, age is one of the factors that cause an individual that chooses a payment method that they are more comfortable using daily.
+
+The choice of payment methods is just one of several aspects of consumer behaviour that are significantly influenced by gender. Men and women differ in how they spend their money, which might affect how they choose to make payments for goods and services. For example, Men might put a higher priority on convenience and speed, looking for payment options that enable speedy transactions, such as contactless payments or mobile wallets. Besides, women may prioritize accessibility and simplicity than males, choosing payment methods that are commonly used and simple to comprehend. According to studies, women frequently show a preference for cash due to its tangible nature and sense of control over spending. Men, on the other hand, frequently choose card-based payments due to their practicality and use, such as credit and debit cards Gao and Li (2019). In conclusion, gender has been identified as a significant factor that influences payment preferences.
+
+As the digital economy spreads around the world, payment methods are changing quickly to meet consumer needs and preferences. But people still do not fully understand what makes them choose one payment method over another. This is an important problem for businesses and policymakers because payment systems are a key part of making transactions easy and helping the economy grow. It is important to know what makes people choose one payment method over another. The goal of this study is to find and examine the things that affect how payments are made. For example, age, gender, income, security concerns, and financial knowledge are all important. By filling in this gap in the research, the study can help create better payment systems and laws that help the economy grow and help consumers.
+
+# Methods
+
+The three types of research such as descriptive research, exploratory research, and correlative study can all be done through surveys. The type used in this research is Exploratory research. Exploratory research seeks to investigate deeply into a topic to generate perspectives and preliminary understanding. Exploratory research in the context of payment preferences would use qualitative tools such as interviews to investigate respondents' perceptions, attitudes, and experiences with payment options. This type of research can aid in the identification of possible factors influencing payment choices, as well as the discovery of fresh discoveries. 
+
+## Study Population
+
+Citizens of Melaka Tengah are the study’s target population. As for the question, the respondents were chosen at random. The total population in this research is 500,000 residents.
+
+## Sampling Technique
+p
+
+## Measuring Instrument
+
+A measuring instrument is a thing that is used to collect data from the respondents. It is used to collect and gather information about preferences regarding the different modes of payment. This instrument gathers all the data from the respondents on the various factors that influence payment preferences such as gender, age, income, security concern, and financial knowledge. This instrument includes questions that we give to people in the public to answer to provide insights into their preferences and mode of payment. 
+
+Questionnaires were constructed and divided into 3 parts which are Part 1, Part 2, and Part 3 respectively. In Part 1, which is the demographic data section, is where the respondents were asked about their background as gender, status, occupation, income, age, and education level. Other than Part 1, the Likert scale question in Part 2 is used and consists of five options of answers which are ‘strongly disagree’, ‘disagree’, ‘neutral’, ‘agree’, and ‘strongly agree’. Part 2 and Part 3 were assigned one variable each which is preference mode of payment, security concern, income, and financial knowledge respectively. 
+
+In Part 2, respondents were asked about their preferred mode of payment. This section overall is about what and why they choose when they want to make a payment. Meanwhile, the security concern is to find out if safety affects the way they make payments. In Part 3, this section was assigned to find out whether the choice of payment method by respondents will be influenced by their income and wanted to know about their knowledge of finance. This part also has an additional 14 to test more about their financial knowledge.
+
+## Method of Data Collection
+
+The method used to collect data in the research we did was questionnaires. For example, we prepared some questions related to our research and we will give them to the respondents who are in central Melaka to find out what factors influence them to choose a payment method. That they like. The questionnaire is created by the researcher, who makes sure the questions are precise, condensed, and related to the research objectives. Questionnaires are a set of printed questions accompanied by a choice of answers in simple English language devised to satisfy the objective of this research. Various types of questions could be included in the questionnaire about our variables such as age, gender, income, security concern, and financial knowledge. This method is used. We can get a lot of responses because we are dealing with our respondents face-to-face.
+
+We created this project by meeting respondents face-to-face, So the direct questionnaire sessions were carried out on printed paper with various questions that were given to the respondent to be answered directly. 
+
+Permission was asked from Majlis Bandaraya Melaka Bersejarah to conduct research on this topic in Melaka Tengah. The total population of residents in Melaka Tengah is (500000). A pilot study was conducted on a limited scale, out of (500000) residents we collected (355) respondents as a sample for our research. The data collection has been done at several places such as Dataran Pahlawan and Pasar Besar Melaka. Next, we used a direct questionnaire as a method of our data collection. For example, we are giving our questionnaire to random people in Melaka Tengah. The result of this study is analysed by using SPSS to measure the reliability of the pilot study.
+
+## Data Analysis
+
+Descriptive statistics is the field of statistics that focuses on summarising, organising, and presenting data understandably and succinctly. It includes explaining and analysing the essential aspects of a dataset using various metrics and approaches. Descriptive statistics seek to offer a clear and simple overview of the data, allowing researchers to obtain insights, detect trends, and effectively explain the findings. Measures of central tendency, such as mean, median, and mode, are used to understand the average or usual preference among participants. Furthermore, by constructing visual representations of the preferences data using charts, histograms, or pie charts to offer a visual summary of the distribution and trends, which is known as a graphical representation. Furthermore, use cross-tabulation analysis to investigate the correlations between payment mode preferences and other characteristics such as age, gender, income, or financial expertise. Chi-square analysis can be used to evaluate the importance of these correlations.
+
+# Results
+
+## Reliability
+
+In research and survey design, Cronbach’s alpha is
+
+## Explanatory Analysis
+
+
 
 # Bibliography styles
 
-Here are two sample references:  @Feynman1963118 @Dirac1953888.
+Here are two sample references: @Feynman1963118 @Dirac1953888.
 
-By default, natbib will be used with the `authoryear` style, set in `classoption` variable in YAML. 
-You can sets extra options with `natbiboptions` variable in YAML header. Example 
+By default, natbib will be used with the `authoryear` style, set in `classoption` variable in YAML. You can sets extra options with `natbiboptions` variable in YAML header. Example
 
-```
+```         
 natbiboptions: longnamesfirst,angle,semicolon
 ```
 
-There are various more specific bibliography styles available at
-<https://support.stmdocs.in/wiki/index.php?title=Model-wise_bibliographic_style_files>. 
-To use one of these, add it in the header using, for example, `biblio-style: model1-num-names`.
+There are various more specific bibliography styles available at <https://support.stmdocs.in/wiki/index.php?title=Model-wise_bibliographic_style_files>. To use one of these, add it in the header using, for example, `biblio-style: model1-num-names`.
 
-## Using CSL 
+## Using CSL
 
-If `cite-method` is set to `citeproc` in `elsevier_article()`, then pandoc is used for citations instead of `natbib`. In this case, the `csl` option is used to format the references. By default, this template will provide an appropriate style, but alternative `csl` files are available from <https://www.zotero.org/styles?q=elsevier>. These can be downloaded
-and stored locally, or the url can be used as in the example header.
+If `cite-method` is set to `citeproc` in `elsevier_article()`, then pandoc is used for citations instead of `natbib`. In this case, the `csl` option is used to format the references. By default, this template will provide an appropriate style, but alternative `csl` files are available from <https://www.zotero.org/styles?q=elsevier>. These can be downloaded and stored locally, or the url can be used as in the example header.
 
 # Equations
 
-Here is an equation:
-$$ 
+Here is an equation: $$ 
   f_{X}(x) = \left(\frac{\alpha}{\beta}\right)
   \left(\frac{x}{\beta}\right)^{\alpha-1}
   e^{-\left(\frac{x}{\beta}\right)^{\alpha}}; 
@@ -118,4 +162,4 @@ Tables can also be generated using R chunks, as shown in @tbl-simple example.
 knitr::kable(head(mtcars)[,1:4])
 ```
 
-# References {-}
+# References {.unnumbered}

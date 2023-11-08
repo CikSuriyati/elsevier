@@ -70,20 +70,21 @@ As the digital economy spreads around the world, payment methods are changing qu
 
 # Methods
 
-The three types of research such as descriptive research, exploratory research, and correlative study can all be done through surveys. The type used in this research is Exploratory research. Exploratory research seeks to investigate deeply into a topic to generate perspectives and preliminary understanding. Exploratory research in the context of payment preferences would use qualitative tools such as interviews to investigate respondents' perceptions, attitudes, and experiences with payment options. This type of research can aid in the identification of possible factors influencing payment choices, as well as the discovery of fresh discoveries. 
+The three types of research such as descriptive research, exploratory research, and correlative study can all be done through surveys. The type used in this research is Exploratory research. Exploratory research seeks to investigate deeply into a topic to generate perspectives and preliminary understanding. Exploratory research in the context of payment preferences would use qualitative tools such as interviews to investigate respondents' perceptions, attitudes, and experiences with payment options. This type of research can aid in the identification of possible factors influencing payment choices, as well as the discovery of fresh discoveries.
 
 ## Study Population
 
-Citizens of Melaka Tengah are the study’s target population. As for the question, the respondents were chosen at random. The total population in this research is 500,000 residents.
+Citizens of Melaka Tengah are the study's target population. As for the question, the respondents were chosen at random. The total population in this research is 500,000 residents.
 
 ## Sampling Technique
+
 p
 
 ## Measuring Instrument
 
-A measuring instrument is a thing that is used to collect data from the respondents. It is used to collect and gather information about preferences regarding the different modes of payment. This instrument gathers all the data from the respondents on the various factors that influence payment preferences such as gender, age, income, security concern, and financial knowledge. This instrument includes questions that we give to people in the public to answer to provide insights into their preferences and mode of payment. 
+A measuring instrument is a thing that is used to collect data from the respondents. It is used to collect and gather information about preferences regarding the different modes of payment. This instrument gathers all the data from the respondents on the various factors that influence payment preferences such as gender, age, income, security concern, and financial knowledge. This instrument includes questions that we give to people in the public to answer to provide insights into their preferences and mode of payment.
 
-Questionnaires were constructed and divided into 3 parts which are Part 1, Part 2, and Part 3 respectively. In Part 1, which is the demographic data section, is where the respondents were asked about their background as gender, status, occupation, income, age, and education level. Other than Part 1, the Likert scale question in Part 2 is used and consists of five options of answers which are ‘strongly disagree’, ‘disagree’, ‘neutral’, ‘agree’, and ‘strongly agree’. Part 2 and Part 3 were assigned one variable each which is preference mode of payment, security concern, income, and financial knowledge respectively. 
+Questionnaires were constructed and divided into 3 parts which are Part 1, Part 2, and Part 3 respectively. In Part 1, which is the demographic data section, is where the respondents were asked about their background as gender, status, occupation, income, age, and education level. Other than Part 1, the Likert scale question in Part 2 is used and consists of five options of answers which are 'strongly disagree', 'disagree', 'neutral', 'agree', and 'strongly agree'. Part 2 and Part 3 were assigned one variable each which is preference mode of payment, security concern, income, and financial knowledge respectively.
 
 In Part 2, respondents were asked about their preferred mode of payment. This section overall is about what and why they choose when they want to make a payment. Meanwhile, the security concern is to find out if safety affects the way they make payments. In Part 3, this section was assigned to find out whether the choice of payment method by respondents will be influenced by their income and wanted to know about their knowledge of finance. This part also has an additional 14 to test more about their financial knowledge.
 
@@ -91,7 +92,7 @@ In Part 2, respondents were asked about their preferred mode of payment. This se
 
 The method used to collect data in the research we did was questionnaires. For example, we prepared some questions related to our research and we will give them to the respondents who are in central Melaka to find out what factors influence them to choose a payment method. That they like. The questionnaire is created by the researcher, who makes sure the questions are precise, condensed, and related to the research objectives. Questionnaires are a set of printed questions accompanied by a choice of answers in simple English language devised to satisfy the objective of this research. Various types of questions could be included in the questionnaire about our variables such as age, gender, income, security concern, and financial knowledge. This method is used. We can get a lot of responses because we are dealing with our respondents face-to-face.
 
-We created this project by meeting respondents face-to-face, So the direct questionnaire sessions were carried out on printed paper with various questions that were given to the respondent to be answered directly. 
+We created this project by meeting respondents face-to-face, So the direct questionnaire sessions were carried out on printed paper with various questions that were given to the respondent to be answered directly.
 
 Permission was asked from Majlis Bandaraya Melaka Bersejarah to conduct research on this topic in Melaka Tengah. The total population of residents in Melaka Tengah is (500000). A pilot study was conducted on a limited scale, out of (500000) residents we collected (355) respondents as a sample for our research. The data collection has been done at several places such as Dataran Pahlawan and Pasar Besar Melaka. Next, we used a direct questionnaire as a method of our data collection. For example, we are giving our questionnaire to random people in Melaka Tengah. The result of this study is analysed by using SPSS to measure the reliability of the pilot study.
 
@@ -103,18 +104,84 @@ Descriptive statistics is the field of statistics that focuses on summarising, o
 
 ## Reliability
 
-In research and survey design, Cronbach’s alpha is
+In research and survey design, Cronbach's alpha is
 
 ## Explanatory Analysis
 
-```{r}
+```{r echo=FALSE}
 library(haven)
 library(readr)
-data<-read_sav("/Users/a434193/Downloads/STA220_GROUP 6.sav")
-write_csv(x=data, path="data2.csv")
-data3<-read.csv("data2.csv", stringsAsFactors = TRUE)
-str(data3)
+library(dplyr)
+library(xlsx)
+library(labelled)
+
+my_data <- read.xlsx("STA 220_GROUP 6.xlsx",  8, header=TRUE, startRow=1, stringsAsFactors=TRUE)
+
+mixed_seq <- function(prefix = "", length.out = 1L) {
+  paste0(prefix, seq_len(length.out))
+}
+
+names(my_data)<-c("Gender", "Status", "Occupation", "Income", "Age", "EducationLevel", "Preference", mixed_seq("a", 6),mixed_seq("b", 7),mixed_seq("c", 11), mixed_seq("d", 10),mixed_seq("e", 9),mixed_seq("f", 14),"Total","Grade")
+
+#names(my_data)
+
+mydata<- my_data[-c(1:13,51:66)]
+
+write.csv(mydata, "~/Desktop/website/shinymanager/gradeR/elsevier/mydata.csv", row.names=FALSE)
+
+mydata<-labelled(
+  c(1,2,3,4,5,NA),
+  c("Strongly Disagree" = 1,Disagree = 2,Neutral=3,Agree= 4,"Strongly Agree"=5))
+
+str(mydata)
 ```
+
+
+In research and survey design, Cronbach’s alpha is frequently used to evaluate the internal consistency of scales or questionnaires. It aids researchers in figuring out whether a scale’s elements are accurately measuring the same construct. This data is essential for scale creation, psychometric evaluation, data cleaning, scale comparison, quality assurance, and effect analysis. Cronbach’s alpha assures the correctness of research findings and evaluations by analysing a scale’s internal consistency. This evaluation offers useful insights into the validity and reliability of measuring instruments used in a variety of areas.
+
+```{r echo=FALSE}
+library(psych)
+library(formattable)
+
+my_data <- read.xlsx("STA 220_GROUP 6.xlsx",  8, header=TRUE, startRow=1, stringsAsFactors=TRUE)
+
+mydata<- my_data[-c(1:13,51:66)]
+
+names(mydata)<-c(mixed_seq("b", 7),mixed_seq("c", 11), mixed_seq("d", 10),mixed_seq("e", 9))
+
+#names(mydata)
+
+preference <- select(mydata, 1:7)
+security <- select(mydata, 8:18)
+income <- select(mydata, 19:28)
+financialKnowledge <- select(mydata, 29:37)
+
+p<-alpha(preference)
+s<-alpha(security)
+i<-alpha(income)
+fk<-alpha(financialKnowledge)
+
+cronbachalpha<-rbind(p$total,s$total,i$total,fk$total )
+ca1<-round(cronbachalpha, digits=3)
+
+ca <-cbind(Variable=c("Preferences mode of payment","Security concern", "Income", "Financial Knowledge"), ca1)
+ca
+```
+
+According to the graph above, (106) respondents, or most of them, are between the ages of (18) and (24). A total of (37) female respondents and (32) male respondents out of the (106) total respondents choose cashless payments as their preferred method of payment, however only (12) male respondents and (25) female respondents prefer utilising cash as their preferred method of payment. The second most responders, with a total of (75) responses, are between the ages of (25) and (31). The average age of the responses for both men and women in this age range is (22), and the average age for men and women in this age range is (24), however (15) men and (24) women still choose to pay with cash. The third-highest respondent's age is also between the ages of (39) and (45). However, a total of (15) male and (13) female respondents from this age group prefer utilising cash as their preferred way of payment, while the number of respondents who prefer using cashless payment methods is (18) and (17), respectively. Moreover, for respondents in the interval age of 32-38 years old has a total of (54) respondents and this interval of age , male is prefer more using cashless with a total of (19) respondents rather than female respondents with a total of (14) respondents but , male in this interval of age is not prefer using cashless and they prefer more using cash with a total of (7) respondents rather than female respondents with a total of (14) respondents. In this interval of age, the number of female respondents for cash or cashless is the same with a total of (14) for each both cashless and cash as their preferences mode of payment. Additionally, for respondents that is below 18 years old have a total of (30) respondents. From these (30) respondents, male and female respondents prefer using cash rather than cashless with a total of (13) and (10) respectively. But for cashless as the preferences mode of payment, they have the least with a total of (5) and (2) respondents for male and female respectively. On top of that, a total of (22) respondents are between the ages of (46) and (52). Given a total of (9) female respondents and (4) male respondents, respectively, women are more likely than men to prefer using cashless payment methods. However, there were (4) responders who were female and (5) who were male for the cash payment decision.
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+preference <- select(mydata, 1:7)
+
+#ggplot(mydata, aes(preference))+geom_bar()
+
+
+```
+
+
 
 
 # Bibliography styles
@@ -122,10 +189,6 @@ str(data3)
 Here are two sample references: @Feynman1963118 @Dirac1953888.
 
 By default, natbib will be used with the `authoryear` style, set in `classoption` variable in YAML. You can sets extra options with `natbiboptions` variable in YAML header. Example
-
-```         
-natbiboptions: longnamesfirst,angle,semicolon
-```
 
 There are various more specific bibliography styles available at <https://support.stmdocs.in/wiki/index.php?title=Model-wise_bibliographic_style_files>. To use one of these, add it in the header using, for example, `biblio-style: model1-num-names`.
 
@@ -171,3 +234,5 @@ knitr::kable(head(mtcars)[,1:4])
 ```
 
 # References {.unnumbered}
+
+[@azhari2023]

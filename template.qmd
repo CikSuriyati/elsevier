@@ -104,11 +104,10 @@ Descriptive statistics is the field of statistics that focuses on summarising, o
 
 ## Reliability
 
-In research and survey design, Cronbach's alpha is
+In research and survey design, Cronbach’s alpha is frequently used to evaluate the internal consistency of scales or questionnaires. It aids researchers in figuring out whether a scale’s elements are accurately measuring the same construct. This data is essential for scale creation, psychometric evaluation, data cleaning, scale comparison, quality assurance, and effect analysis. Cronbach’s alpha assures the correctness of research findings and evaluations by analysing a scale’s internal consistency. This evaluation offers useful insights into the validity and reliability of measuring instruments used in a variety of areas @tbl-1.
 
-## Explanatory Analysis
+```{r echo=FALSE, message=FALSE}
 
-```{r echo=FALSE}
 library(haven)
 library(readr)
 library(dplyr)
@@ -133,19 +132,29 @@ mydata<-labelled(
   c(1,2,3,4,5,NA),
   c("Strongly Disagree" = 1,Disagree = 2,Neutral=3,Agree= 4,"Strongly Agree"=5))
 
-str(mydata)
+#str(mydata)
 ```
 
 
-In research and survey design, Cronbach’s alpha is frequently used to evaluate the internal consistency of scales or questionnaires. It aids researchers in figuring out whether a scale’s elements are accurately measuring the same construct. This data is essential for scale creation, psychometric evaluation, data cleaning, scale comparison, quality assurance, and effect analysis. Cronbach’s alpha assures the correctness of research findings and evaluations by analysing a scale’s internal consistency. This evaluation offers useful insights into the validity and reliability of measuring instruments used in a variety of areas.
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE}
+#| tbl-cap: Cronbach alpha values
+#| label: tbl-1
+#| 
 library(psych)
+library(haven)
+library(readr)
+library(dplyr)
 library(formattable)
+library(labelled)
 
 my_data <- read.xlsx("STA 220_GROUP 6.xlsx",  8, header=TRUE, startRow=1, stringsAsFactors=TRUE)
 
 mydata<- my_data[-c(1:13,51:66)]
+
+mixed_seq <- function(prefix = "", length.out = 1L) {
+  paste0(prefix, seq_len(length.out))
+}
 
 names(mydata)<-c(mixed_seq("b", 7),mixed_seq("c", 11), mixed_seq("d", 10),mixed_seq("e", 9))
 
@@ -161,28 +170,121 @@ s<-alpha(security)
 i<-alpha(income)
 fk<-alpha(financialKnowledge)
 
-cronbachalpha<-rbind(p$total,s$total,i$total,fk$total )
+cronbachalpha<-rbind(p$total[,1:3],s$total[,1:3],i$total[,1:3],fk$total[,1:3] )
 ca1<-round(cronbachalpha, digits=3)
 
 ca <-cbind(Variable=c("Preferences mode of payment","Security concern", "Income", "Financial Knowledge"), ca1)
-ca
+
+knitr::kable(ca)
+```
+
+## Explanatory Analysis
+
+```{r echo=FALSE, message=FALSE}
+#| fig-cap: Graph of Age, Gender, and Preferences Mode of Payment
+#| fig-align: center
+#| out-width: 50%
+
+library(psych)
+library(haven)
+library(readr)
+library(dplyr)
+library(formattable)
+library(labelled)
+library(ggplot2)
+
+my_data <- read.xlsx("STA 220_GROUP 6.xlsx",  8, header=TRUE, startRow=1, stringsAsFactors=TRUE)
+
+mydata<- my_data[-c(1:13,51:66)]
+mydata2<- my_data[c(1:13,51:66)]
+
+mixed_seq <- function(prefix = "", length.out = 1L) {
+  paste0(prefix, seq_len(length.out))
+}
+
+names(mydata)<-c(mixed_seq("b", 7),mixed_seq("c", 11), mixed_seq("d", 10),mixed_seq("e", 9))
+names(mydata2)<-c("Gender", "Status", "Occupation", "Income", "Age", "EducationLevel", "Preference", mixed_seq("a", 6),mixed_seq("f", 14),"Total","Grade")
+
+preference <- select(mydata, 1:7)
+security <- select(mydata, 8:18)
+income <- select(mydata, 19:28)
+financialKnowledge <- select(mydata, 29:37)
+
+mydata3<-cbind(mydata2, mydata)
+write.csv(mydata3, "~/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv", row.names=FALSE)
+
+ggplot(mydata3, aes(Age, fill = Gender)) +geom_bar()+ coord_flip()+theme_bw()
 ```
 
 According to the graph above, (106) respondents, or most of them, are between the ages of (18) and (24). A total of (37) female respondents and (32) male respondents out of the (106) total respondents choose cashless payments as their preferred method of payment, however only (12) male respondents and (25) female respondents prefer utilising cash as their preferred method of payment. The second most responders, with a total of (75) responses, are between the ages of (25) and (31). The average age of the responses for both men and women in this age range is (22), and the average age for men and women in this age range is (24), however (15) men and (24) women still choose to pay with cash. The third-highest respondent's age is also between the ages of (39) and (45). However, a total of (15) male and (13) female respondents from this age group prefer utilising cash as their preferred way of payment, while the number of respondents who prefer using cashless payment methods is (18) and (17), respectively. Moreover, for respondents in the interval age of 32-38 years old has a total of (54) respondents and this interval of age , male is prefer more using cashless with a total of (19) respondents rather than female respondents with a total of (14) respondents but , male in this interval of age is not prefer using cashless and they prefer more using cash with a total of (7) respondents rather than female respondents with a total of (14) respondents. In this interval of age, the number of female respondents for cash or cashless is the same with a total of (14) for each both cashless and cash as their preferences mode of payment. Additionally, for respondents that is below 18 years old have a total of (30) respondents. From these (30) respondents, male and female respondents prefer using cash rather than cashless with a total of (13) and (10) respectively. But for cashless as the preferences mode of payment, they have the least with a total of (5) and (2) respondents for male and female respectively. On top of that, a total of (22) respondents are between the ages of (46) and (52). Given a total of (9) female respondents and (4) male respondents, respectively, women are more likely than men to prefer using cashless payment methods. However, there were (4) responders who were female and (5) who were male for the cash payment decision.
 
-```{r}
-library(ggplot2)
+```{r echo=FALSE, message=FALSE}
+#| fig-cap: Graph of The Preferences Mode of Payment and Financial Knowledge
+#| fig-align: center
+#| out-width: 50%
+
 library(dplyr)
+library(ggplot2)
 
-preference <- select(mydata, 1:7)
-
-#ggplot(mydata, aes(preference))+geom_bar()
-
-
+ggplot(mydata3, aes(Grade, fill = Gender)) +geom_bar()+theme_bw()
 ```
+There are three levels of financial knowledge which are low, medium, and high. According to the above graph. Respondents with scores below five are considered to have limited financial understanding. Additionally, the score for those with medium financial knowledge will be less than ten but greater than five, while those with strong financial knowledge will have scores greater than ten. According to the graph above, respondents with medium financial knowledge are more numerous than those with high and poor financial knowledge, which is (290), (7), and (58) of respondents, respectively. Most respondents with medium financial knowledge preferred cashless transactions over cash, with (166) and (124), respectively. Next, respondents with strong financial understanding likewise preferred cashless methods over cashless methods, with (6) and (1) responses, respectively, and the same was true of respondents with limited financial knowledge, with (32) and (26) responses, respectively. In conclusion, the usage of the cashless method is more than the use of the cash method overall, with (204) and (151) users, respectively, for both categories of financial knowledge, whether high or poor, and a difference of (53).
+
+```{r echo=FALSE, message=FALSE}
+#| fig-cap: Graph of Occupation and Education Level
+#| fig-align: center
+#| out-width: 50%
+
+library(dplyr)
+library(ggplot2)
+
+ggplot(mydata3, aes(x=EducationLevel, fill=Occupation)) +geom_bar()+theme_bw()+coord_flip()
+```
+Based on the graph above, most of the respondent’s occupation are employed which has the total of (244) respondents. For other respondent’s occupation are study and unemployed that has the total of (74) and (20) respectively. Furthermore, majority of the employed respondent’s education level is Diploma or Certificate that has the total of (95) followed by (85) and (52) for the Secondary School and Degree. Also, the least of the employed respondents comes from education level for PHD, Master, Primary School and Not Attending School which is (2), (4), (4) and (2) respondents respectively. Other than that, for the most to the least education level of respondents that is still study are Diploma, secondary school, Degree, and Master which are (33), (27), (13) and (1) respondent respectively. Moreover, for unemployed respondent’s education level are secondary school, Diploma, Degree and not attending school which has the total of (20), (10), (6) and (1) respondent respectively.
+
+```{r echo=FALSE, message=FALSE}
+#| fig-cap: Graph of Security Concern on Cashless Payment, Gender, and Preference Mode of Payment
+#| fig-align: center
+#| out-width: 50%
+
+library(dplyr)
+library(ggplot2)
+
+ggplot(mydata3, aes(x=Preference, fill=Age)) +geom_bar()+theme_bw()+facet_wrap(~Gender)
+```
+Based on the graph above, for cashless payment method is more likely to choose by female rather than male which is a total of (105) of female respondents and (68) male respondents. Based on this cashless payment method, most of the respondent faced technical issues with this cashless payment as a total of (47) females' respondents and (47) male respondents faced this kind of issues. For the least issues faced by the respondents with cashless payment method is victim of hacking with a total of (4) for each female and male respondent. Also, there are (18) females' respondents and (12) male respondents that faced the issue with the security problems for this cashless payment and (6) female and (5) male respondents that faced the issues with the increased costs. Other than that, for the cash as the preference mode of payment, a total of (50) for each female and male respondents choose this kind of method. In this cash payment method, (38) female and (29) male respondents faced the issues about technical. Moreover, the least issues faced by the respondents is victim of hacking which are a total of (3) female respondents and (4) male respondents. After that, for security problems, (4) female respondents and (10) male respondents faced this type of issue. Next, the other issues faced by the respondents is increased costs which has the total of (5) female respondents and (7) male respondents.
+
+Graph of Respondent’s Preferences Mode of Payment.
 
 
+Based on the graph above, (337) respondents know others mode of payment other than cash, but (18) respondents did not know others mode of payment other than cash. Next, a total of (319) respondents use mobile payment while (36) respondents did not use mobile payment. Other than that, (160) of the respondents are agree that gender factors influence their payment preferences however (195) of the respondents are disagree that gender factors influence their payment preferences. Moreover, (220) respondents experienced issues with the cashless payment method during making a payment and (135) respondents never experienced any issues with cashless payment.
 
+Graph of Income and Preferences Mode of Payment
+
+Based on the graph above, a total of (151) respondents choose cash as mode of payment and total of (204) respondents choose cashless as mode of payment. The most of respondents’ income is below RM 2,500 with (112) respondents choose cash and (98) respondents choose cashless. However, for the least of the respondents’ income is above RM 15,039 with (0) respondents for both cash and cashless mode of payment. Based on income RM 2,501 – RM 3,169, there are (20) respondents for cash payment method and (35) respondents for cashless mode of payment. Next, for income RM 3,170 – RM 3,969, (8) respondents are from cash mode of payment and (36) respondents are from cashless mode of payment. Other than that, a total of (8) respondent's cash payment method and (13) respondents of cashless mode of payment are from income RM3970-RM4849. For cash mode of payment, there is (1) respondent from each income which are RM4850-RM5879, RM7110-RM8699 and RM 8700-RM10959 while (0) respondent from income RM5800-RM7099 and RM10960-RM15039. For cashless mode of payment, (6) respondents are from income RM4850-RM5879, (11) respondents from RM5880-RM7099, (3) respondents from RM8700-RM10959 and (1) respondent from each RM7110-RM8699 and RM10960-RM15039 income.
+
+## Spearman’s Correlation Coefficient
+
+The relationship between preferences mode of payment and security concern determined by the coefficient of correlation and p-value of Spearman’s. There is no significant relationship between preferences mode of payment and security concern, the null hypothesis of this factor. The research hypothesis is to demonstrate whether the two variables have a significant relationship. This research hypothesis is same with the relationship between preferences mode of payment and income.
+The Spearman’s correlation and p-value also were used to examine the association between preference mode of payment and financial knowledge. The null hypothesis for this factor is that there is no significant association between preferred payment methods and security concerns. The purpose of the research is to show if there is a significant relationship between the two variables. 
+
+It shows, based on Table 4.6, the p-value of security concern is (0.029) is less than the significant level (0.05), it can be concluded that there is significant relationship between preferences mode of payment and security concern. The correlation between the two variables is very weak negative correlation. This means that people still care about their security concern in choosing their preferred mode of payment. People tends to choose mode of payment that offers stricter security levels.
+Moreover, Income’s p-value is (0.000) that below the significant level of (0.05) and it is possible to infer that there is a significant relationship between preferences mode of payment, and income. The positive linear connection between both variables is relatively weak. Due to their income, they tend to make a decision on preference mode of payment. The higher their income, the more they use cashless payments.
+While the p-value of financial knowledge is (0.700) is greater than the significant level (0.05), it can be concluded that there is no significant relationship between preferences mode of payment and financial knowledge. The correlation between the two variables is very weak negative correlation. According to the research, whether their financial level is high, medium, or low, a knowledge of finances does not appear to have a major effect on people's preferred payment methods. 
+
+## Chi-Squared Test between Preferences Mode of Payment and Gender and Preferences Mode of Payment and Age
+
+The relationship between preference mode of payment and gender and preferences mode of payment and age using the Chi-squared test to obtain p-value. The study objective is to determine whether there is a significant association between the two variables.
+
+Based on table 4.9, the p-value is (0.535) that above the significant level (0.05) and it is possible to infer that there is no significant relationship between preferences mode of payment and gender. It means that the way people choose their preferences mode of payment is not related to their gender. For example, both men and women were equally likely to use cash or online payment to pay for purchases.
+On the other hand, the p-value of age is (0.007) that below the significant level (0.05) and it is possible to infer that there is a significant relationship between preferences mode of payment and age. It means that age influences an individual's choice of preferences mode of payment. Moreover, as age increases, people are more likely to use cash rather than cashless. For example, younger individuals are more likely to use cashless payment and older individuals are more likely to use cash payments and more inclined to continue using it.
+
+# Conclusion
+
+This research explores the factors influencing consumer preferences for payment methods, focusing on age, gender, income, security concern, and financial knowledge. Results show that security concern, income level, and age significantly influence payment preferences. While, financial knowledge and gender also play a role, but to a lesser extent. This understanding can help businesses and policymakers tailor offerings and payment solutions to better align with consumer needs and preferences. The important findings in this study which highlights the influence of a person's payment preferences on their security concerns, income, financial knowledge, age, and gender. Payment preferences are greatly influenced by security concerns, with women being more cautious of cashless transactions than males. This indicates that while picking their preferred method of payment, people continue to be concerned about their security. People frequently pick payment methods with higher security standards. Income levels are also important, with people with higher salaries demonstrating a larger preference for cashless transactions. People typically base their payment preference on their income, preferring towards cashless choices as their income rises. An individual may choose cashless payments over cash more if their income high. Financial knowledge is not a major influence since those who had more financial knowledge did not exhibit a bigger propensity towards cashless transactions. A person's chosen payment methods do not appear to be much influenced by their understanding of money, regardless of whether they are at a high, medium, or low financial level. Additionally, as people get older, they are more inclined to use cash than cashless payment methods. For instance, younger people are more likely to use cashless payments, but elderly people are more likely to use cash payments and are more likely to do so in the future. As for gender, our study implies that people's preferences for payment methods are unaffected by their gender. For instance, men and women were equally likely to make purchases using cash or cashless payment method. Moreover, the interesting findings in this research is 42.54 % of respondent in Melaka Tengah is using cash and 57.46 % are more likely to favour cashless payment method. This shows that even though the preference mode of payment in Melaka Tengah more goes for cashless but the cash method still in their practiced.
+Regarding the impact of security concerns, income, financial literacy, age, and gender on preferences for various payment methods, more research studies have come to similar results. For instance, this study which looked at the effect of security worries on the adoption of mobile payment systems, discovered that those who had greater security worries were less likely to utilise these payment options same with Thompson et al.'s (2018) study. This is consistent with the findings of our study, which point to the necessity of resolving security issues to encourage the use of cashless payment systems Thompson et al. 's (2018). Additionally, younger people demonstrated a larger tendency towards cashless payments compared to older people in a study by Chen and Li (2017), which is similar with the findings of our study.
+
+Several important aspects come into play when analysing the variables that affect a person's choice for a means of payment. Age frequently has a huge impact since younger generations like digital payment methods like mobile wallets or online platforms owing to their practicality and use. Studies have shown that men and women may have distinct payment preferences, but it is important to consider that there are disparities between individuals within each gender. Another important element is income level, as those with greater salaries could have access to a larger variety of payment alternatives and might lean more towards high-end or luxury payment methods. Many people prioritise security above all else, particularly in this day of growing cyberthreats. Payment options with strong security safeguards, such as encrypted transactions and two-factor authentication, are likely to be preferred by those who place a high priority on security. Finally, knowledge of finance may influence payment choices. People with a higher degree of financial knowledge may choose payment options that provide extra perks, such rewards programmes, or interest-bearing accounts. Understanding and accommodating people's various payment preferences necessitates taking these things into consideration.
 
 # Bibliography styles
 
@@ -207,32 +309,5 @@ $$
 
 Inline equations work as well: $\sum_{i = 2}^\infty\{\alpha_i^\beta\}$
 
-# Figures and tables
-
-@fig-meaningless is generated using an R chunk.
-
-```{r}
-#| label: fig-meaningless
-#| fig-cap: A meaningless scatterplot
-#| fig-width: 5
-#| fig-height: 5
-#| fig-align: center
-#| out-width: 50%
-#| echo: false
-plot(runif(25), runif(25))
-```
-
-# Tables coming from R
-
-Tables can also be generated using R chunks, as shown in @tbl-simple example.
-
-```{r}
-#| label: tbl-simple
-#| tbl-cap: Caption centered above table
-#| echo: true
-knitr::kable(head(mtcars)[,1:4])
-```
 
 # References {.unnumbered}
-
-[@azhari2023]

@@ -1,0 +1,173 @@
+---
+title: "Untitled"
+format: pdf
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+## Load Libraries
+library(lavaan)
+library(lavaanPlot)
+library(dplyr) 
+library(tidyr)
+library(knitr)
+library(mvnormalTest)
+library(tidySEM)
+model3 <- '
+  preference =~ b2 + b4+ b6 + b7
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  preference ~ financialKnowledge'
+
+fit3 <- sem(model3, data = mydata3)
+lavaanPlot(model = fit3, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+You can add options to executable code like this
+
+```{r}
+## Load Libraries
+library(lavaan)
+library(lavaanPlot)
+library(dplyr) 
+library(tidyr)
+library(knitr)
+library(mvnormalTest)
+library(tidySEM)
+model4 <- '
+  preference =~ b2 + b4+ b6 + b7
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  preference ~ income' 
+
+fit4 <- sem(model4, data = mydata3)
+lavaanPlot(model = fit4, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+```{r}
+model2 <- '
+  preference =~ b2 + b4+ b6 + b7
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  preference ~ income + financialKnowledge'
+
+fit2 <- sem(model2, data = mydata3)
+lavaanPlot(model = fit2, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+
+```{r}
+
+model5 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  financialKnowledge ~ income' 
+
+fit5 <- sem(model5, data = mydata3)
+lavaanPlot(model = fit5, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+```{r}
+model6 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  security =~ c1 + c2+c3+c5+c6+c11
+  financialKnowledge ~ security' 
+
+fit6 <- sem(model6, data = mydata3)
+lavaanPlot(model = fit6, coefs = TRUE, stand = TRUE, sig = 0.05)
+
+```
+
+```{r}
+model6 <- '
+  preference =~ b2 + b4+ b6 + b7
+  security =~ c1 + c2+c3+c5+c6+c11
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  security ~ income
+  preference ~ security +income' 
+
+fit6 <- sem(model6, data = mydata3)
+lavaanPlot(model = fit6, coefs = TRUE, stand = TRUE, sig = 0.05)
+
+```
+
+
+```{r}
+model7 <- '
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  security =~ c1 + c2+c3+c5+c6+c11
+  security ~ income' 
+
+fit7 <- sem(model7, data = mydata3)
+lavaanPlot(model = fit7, coefs = TRUE, stand = TRUE, sig = 0.05)
+
+```
+
+```{r}
+
+model8 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  security =~ c1 + c2+c3+c5+c6+c11
+  income ~ security
+  financialKnowledge ~ income + security'
+
+fit8 <- sem(model8, data = mydata3)
+lavaanPlot(model = fit8, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+```{r}
+model9 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  security =~ c1 + c2+c3+c5+c6+c11
+  preference =~ b2 + b4+ b6 + b7
+  security~ income
+  preference ~ financialKnowledge
+  financialKnowledge ~ income + security'
+
+fit9 <- sem(model9, data = mydata3)
+lavaanPlot(model = fit9, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+```{r}
+model9 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  security =~ c1 + c2+c3+c5+c6+c11
+  preference =~ b2 + b4+ b6 + b7
+  security~ income
+
+  preference~ security
+  preference ~ financialKnowledge
+  financialKnowledge ~ income + security'
+
+fit9 <- sem(model9, data = mydata3)
+lavaanPlot(model = fit9, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+
+
+
+```{r}
+model9 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  security =~ c1 + c2+c3+c5+c6+c11
+  preference =~ b2 + b4+ b6 + b7
+  security~ income
+  preference ~ financialKnowledge + income + security'
+
+fit9 <- sem(model9, data = mydata3)
+lavaanPlot(model = fit9, coefs = TRUE, stand = TRUE, sig = 0.05)
+```
+```
+
+

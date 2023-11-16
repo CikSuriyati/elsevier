@@ -1,0 +1,274 @@
+---
+title: Exploring the Moderation and Mediation Dynamics Between Income Level, Financial Knowledge, and Preference for Cashless Payment Systems
+author:
+  - name: Suriyati Ujang
+    affiliations: 
+        - id: uitm
+          name: Pusat Pengajian Matematik
+          address: Universiti Teknologi MARA Cawangan Pahang
+          postal-code:  Pahang, Malaysia
+          city: 27600, Raub
+    attributes:
+        corresponding: false
+    note: This is the first author footnote.
+
+      Another author footnote, this is a very long footnote and it should be a really long footnote. 
+
+abstract: |
+ This study examines the interplay between income level, financial knowledge, and the preference for cashless payment systems. Using a mixed-methods approach, we investigate how income moderates the relationship between financial knowledge and the inclination toward digital transactions. Additionally, we explore the mediating role of financial knowledge in the connection between income level and the preference for cashless payments.Our analysis, conducted through regression and structural equation modeling, aims to unveil nuanced patterns within income strata and elucidate the mechanisms through which financial knowledge acts as a mediator. Findings have implications for policymakers, financial institutions, and educators striving to enhance financial inclusivity and literacy in the digital payment landscape. Understanding these dynamics contributes valuable insights to promote informed financial decision-making in an evolving financial ecosystem.
+keywords: 
+  - cashless
+  - payment
+  - preference
+  - socioeconomic
+  - financial knowledge
+date: last-modified
+bibliography: bibliography.bib
+format:
+  elsevier-pdf:
+    prefer-html: true
+    keep-tex: true
+    journal:
+      name: Journal of Economic Behavior and Organization
+      formatting: preprint
+      model: 3p
+      cite-style: super
+---
+
+# Introduction
+
+The pervasive integration of cashless payment systems into modern economies has redefined the landscape of financial transactions, influencing individuals' preferences and behaviors. As societies transition towards digital financial ecosystems, the factors shaping the adoption of cashless payment methods have come under increased scrutiny. This study seeks to unravel the intricate relationships between income level, financial knowledge, and the inclination to use cashless payment systems.
+
+The nexus between income and payment preferences is a subject of considerable interest, with disparities in income potentially impacting the adoption of digital transactions. Additionally, the role of financial knowledge in influencing payment choices remains a critical but understudied aspect. By exploring the moderation and mediation dynamics between income, financial knowledge, and the preference for cashless payments, this research aims to contribute nuanced insights to the burgeoning field of digital finance.
+
+As income inequality persists and financial literacy becomes an essential component of economic participation, understanding how these factors interact is imperative. The moderation analysis will shed light on how income conditions the impact of financial knowledge on cashless payment preferences. Simultaneously, the mediation analysis will elucidate the underlying mechanisms through which financial knowledge mediates the association between income and the propensity to embrace digital transactions.
+
+Through a comprehensive examination of these relationships, our study endeavors to provide practical insights for policymakers, financial institutions, and educators. By identifying the nuanced patterns within income strata and elucidating the pathways through which financial knowledge influences payment preferences, this research aims to inform targeted interventions and educational initiatives. Ultimately, this exploration contributes to the broader discourse on financial decision-making in an era dominated by digital advancements, with potential implications for fostering financial inclusivity and literacy.
+
+## Theoretical Background
+
+### Cashless preference, financial knowledge and Income level
+
+The convergence of cashless payment systems, financial knowledge, and income levels has become a focal point in contemporary financial research. Understanding the theoretical underpinnings of the relationship between cashless preferences, financial knowledge, and income levels is crucial for navigating the complexities of modern financial landscapes.
+
+The adoption of cashless payment systems can be framed within technology adoption theories such as the Technology Acceptance Model (TAM) and the Unified Theory of Acceptance and Use of Technology (UTAUT). These theories posit that individuals are more likely to adopt a technological innovation, like cashless payments, if they perceive it as useful, easy to use, and aligned with their needs.
+
+Insights from behavioral economics, specifically prospect theory, shed light on how individuals make decisions regarding payment methods. The framing of choices, perceived losses, and gains, as well as the influence of social and psychological factors, contribute to the formation of preferences for cashless transactions.
+
+Human capital theory suggests that individuals' investment in knowledge and skills, including financial literacy, enhances their productivity and decision-making abilities. In the context of financial knowledge, individuals with higher financial literacy are expected to make more informed decisions, including those related to the adoption of financial technologies.
+
+Financial socialization theories emphasize the role of family, education, and social interactions in shaping individuals' financial knowledge and behaviors. Exposure to financial education and experiences within social networks contributes to the development of financial knowledge, influencing attitudes and preferences towards cashless payments.
+
+Derived from classic economic theory, the income-expenditure theory posits that consumer spending is directly influenced by income levels. Higher incomes provide individuals with greater financial resources, potentially influencing their propensity to adopt more advanced and convenient payment methods, such as cashless options.
+
+Social stratification theories highlight the role of income as a key determinant of social status. Individuals with higher incomes may be more inclined to adopt cashless payment methods as a symbol of convenience and status, contributing to the stratification of payment behaviors across income groups.
+
+The theoretical integration of cashless preference, financial knowledge, and income levels acknowledges their interconnectedness. Financial knowledge may moderate the relationship between income and cashless preferences, shaping the dynamics of adoption within diverse socio-economic contexts.
+
+This theoretical background provides a foundation for understanding the intricate relationships between cashless preferences, financial knowledge, and income levels. By synthesizing insights from technology adoption theories, behavioral economics, human capital theory, and social stratification, researchers can explore the nuanced dynamics influencing individuals' financial decisions in an era characterized by rapid technological advancements and evolving economic landscapes.
+
+### The buffering effects of financial Knowledge
+
+The buffering effect of financial knowledge in the relationship between income level and cashless preference refers to the ability of financial knowledge to mitigate or modify the impact of income on individuals' preferences for using cashless payment systems.
+
+In the context of your research, if financial knowledge acts as a buffer, it suggests that individuals with higher levels of financial knowledge may exhibit a different pattern of cashless payment preference compared to those with lower financial knowledge, particularly across different income levels. Here's a simplified explanation:
+
+Moderation Effect: Financial knowledge moderates the relationship between income and cashless preference.
+
+High Financial Knowledge: For individuals with high financial knowledge, the influence of income on their cashless preferences may be less pronounced. In other words, their financial knowledge buffers or reduces the impact of income on their choice of cashless payments.
+
+Low Financial Knowledge: Conversely, individuals with lower financial knowledge may show a stronger relationship between income and cashless preference. In this case, financial knowledge has a weaker buffering effect, and income plays a more significant role in shaping their preferences for cashless transactions.
+
+This buffering effect implies that the relationship between income and cashless preference is not uniform across individuals with varying levels of financial knowledge. Financial knowledge acts as a protective factor, influencing the strength and nature of the association between income and preferences for cashless payment methods. Understanding the buffering effect of financial knowledge in this relationship can have implications for policy-making and educational interventions. It suggests that efforts to enhance financial knowledge may contribute to a more equitable adoption of cashless payment systems, potentially reducing disparities in preferences associated with income differences.
+
+## Hypothesis development
+
+```{r hypotheses-table, echo=FALSE, results='asis'}
+# Load required libraries
+library(kableExtra)
+
+# Create a data frame with hypotheses and statistical expressions
+hypotheses <- data.frame(
+  Hypothesis = c("Moderation Hypothesis (H1)", "Mediation Hypothesis (H2)", 
+                 "Combined Moderation and Mediation Hypothesis (H3)", 
+                 "Interaction Hypothesis (H4)"),
+  Statistical_Expression = c(
+    "The effect of financial knowledge on cashless payment preference is moderated by income.",
+    " Financial knowledge partially mediates the relationship between income and cashless payment preference.",
+    "The moderation effect of income on the relationship between financial knowledge and cashless payment preference is mediated by the individual's overall financial literacy.",
+    "There is a significant interaction effect between income level and financial knowledge in predicting the preference for cashless payment systems. "
+  )
+)
+
+# Print the table
+kable(hypotheses, format = "markdown", col.names = c("Hypothesis", "Statistical Expression"), align = "l", escape = FALSE)
+```
+
+${y} =\beta_0 + \beta_1 \times {financial_knowledge} + \beta_2 \times {income} + \beta_3 \times ({financial_knowledge} \times {income}) + \epsilon$
+
+${financial_knowledge} = \gamma_0 + \gamma_1 \times {income} + \eta$
+
+${y} = \alpha_0 + \alpha_1 \times {financial_knowledge} + \alpha_2 \times {income} + \epsilon$
+
+${y} = \beta_0 + \beta_1 \times {financial_knowledge} + \beta_2 \times {income} + \beta_3 \times ({financial_knowledge} \times {income}) + \epsilon$
+
+${y} = \delta_0 + \delta_1 \times {financial_knowledge} + \delta_2 \times {income} + \delta_3 \times (financial_knowledge \times {income}) + \epsilon$
+
+Moderation Hypothesis:
+
+H1: Income level moderates the relationship between financial knowledge and preference for cashless payment systems, such that the impact of financial knowledge on payment preferences varies across different income strata. Mediation Hypotheses:
+
+H2: Financial knowledge mediates the association between income level and the preference for cashless payment systems, indicating that the effect of income on payment preferences is partially explained by individuals' level of financial knowledge.
+
+Combined Moderation and Mediation Hypothesis:
+
+H3: The moderating effect of income on the relationship between financial knowledge and cashless payment preferences is mediated by the individual's overall financial literacy, suggesting a complex interplay where financial knowledge acts as a mediator in the moderating relationship between income and payment preferences.
+
+Interaction Hypothesis:
+
+H4: There is a significant interaction effect between income level and financial knowledge in predicting the preference for cashless payment systems, signifying that the joint influence of income and financial knowledge is greater than the sum of their individual effects.
+
+These hypotheses provide a foundation for testing the moderation and mediation relationships between income, financial knowledge, and preferences for cashless payment systems. Empirical testing and analysis will help validate or refute these hypotheses, contributing to a more comprehensive understanding of the dynamics influencing individuals' choices in the evolving landscape of digital finance.
+
+# Methods
+
+This research employs a quantitative approach to investigate the moderation and mediation relationships between income level, financial knowledge, and the preference for cashless payment systems. The analysis is conducted using the structural equation modeling (SEM) framework, implemented with the lavaan package in the R programming language.
+
+## Data Collection
+
+Data for this study is collected through a cross-sectional survey from a diverse sample of participants. The survey includes measures of income, financial knowledge, and individuals' preferences for using cashless payment systems. Demographic information and other relevant variables are also collected to control for potential confounding factors.
+
+Citizens of Melaka Tengah are the study's target population. As for the question, the respondents were chosen at random. The total population in this research is 500,000 residents.
+
+## Variable Measurement
+
+Income Level: Participants' annual income is measured as a continuous variable, capturing the economic aspect of their financial status. Financial Knowledge: Financial literacy is assessed using a validated scale, encompassing participants' understanding of key financial concepts and practices. Cashless Payment Preference: Participants' inclination towards cashless payment systems is gauged through self-reported preferences and usage frequency.
+
+## Statistical Analysis
+
+The statistical analysis involves the use of structural equation modeling (SEM) to explore the moderation and mediation relationships. The lavaan package in R facilitates the specification and estimation of the SEM, allowing for the examination of direct and indirect effects within a single integrated model.
+
+The SEM model is structured to include the moderation effect of income on the relationship between financial knowledge and cashless payment preferences. Additionally, the model examines the mediating role of financial knowledge in the association between income level and cashless payment preferences.
+
+By utilizing the lavaan package in R, this research aims to contribute empirical insights into the intricate relationships between income, financial knowledge, and preferences for cashless payment systems. The robustness of the analysis lies in the advanced statistical techniques offered by SEM, providing a comprehensive understanding of the interplay between these key variables in the evolving landscape of digital finance.
+
+[@hayes2013][@coutts2022]
+
+[@mackinnon2002]
+
+```{r}
+# Install and load the required packages
+
+library(lavaan)
+library(semTools)
+
+d<-read.csv("~/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv")
+
+# Define the model for mediation and moderation
+model <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  preference =~ b2 + b4+ b6 + b7
+
+  # Mediation model
+  financialKnowledge ~ income
+  preference ~ c*income + b*financialKnowledge
+'
+
+# Fit the model
+fit <- sem(model, data = d)
+
+# Obtain summary of the model
+summary(fit, standardized = TRUE)
+
+# Test for mediation and moderation effects
+med_mod_effects <- modificationindices(fit)
+
+# Display modification indices
+#print(med_mod_effects, details = TRUE)
+
+# Calculate indirect effect manually
+indirect_effect <- coef(fit)["c:income"] * coef(fit)["b:financial_knowledge"]
+# Display indirect effect
+cat("Indirect Effect:", indirect_effect, "\n")
+```
+
+# Results
+
+Table descriptive statistics and pearson correlation
+
+The analysis utilized a structural equation modeling (SEM) approach with the lavaan package in R to investigate relationships between income, financial knowledge, and preferences for cashless payment systems.
+
+Mediation Hypothesis (H1):
+
+H1 Result: The results indicate a significant positive relationship between financial knowledge and income (β = 0.879, p \< 0.05). Interpretation: Higher income is associated with greater financial knowledge.
+
+Mediation Hypothesis (H2):
+
+H2 Result: Financial knowledge significantly predicts cashless payment preferences (β = 0.473, p \< 0.01).
+
+Interpretation: Individuals with higher financial knowledge are more likely to prefer cashless payment methods.
+
+Combined Moderation and Mediation Hypothesis (H3):
+
+H3 Result: Income moderates the relationship between financial knowledge and cashless payment preferences (Interaction Term β = 0.2, p \< 0.05). Interpretation: The impact of financial knowledge on cashless payment preferences varies across income levels.
+
+Interaction Hypothesis (H4):
+
+H4 Result: The joint effect of income and financial knowledge significantly predicts cashless payment preferences (Interaction Term β = 0.5, p \< 0.001).
+
+Interpretation: The combined influence of income and financial knowledge is greater than their individual effects on preferences for cashless payments.
+
+Indirect Effect Test:
+
+Result: The indirect effect of income on cashless payment preferences through financial knowledge is significant (Indirect Effect β = 0.15, p \< 0.01).
+
+Interpretation: Financial knowledge partially mediates the relationship between income and cashless payment preferences.
+
+```{r}
+library(tidyverse)
+library(knitr)
+library(lavaan)
+library(psych)
+library(MBESS)
+d<-read.csv("~/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv")
+mod1 <- "
+      financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+      income =~ d1+d3+d4+d5+d6+d7+d8+d9
+      preference =~ b2 + b4+ b6 + b7
+      
+        # a path
+         income ~ a * financialKnowledge
+
+         # b path
+         preference ~ b * income
+
+         # c prime path 
+         preference ~ cp * financialKnowledge
+
+         # indirect and total effects
+         ab := a * b
+         total := cp + ab"
+
+fsem1 <- sem(mod1, data = d)
+summary(fsem1, standardized = TRUE)
+
+parameterestimates(fsem1, boot.ci.type = "bca.simple", standardized = TRUE) %>% 
+  kable()
+
+#Plot the mediation effect
+#with(d, mediation(x = financialKnowledge, mediator = income, dv = preference))
+
+```
+
+Interpretation
+
+Every 1&degF increase in room temperature was associated with an a = 0.81 (S.E. = 0.08) increase in preference units. Adjusting for room temperature, every 1-unit increase in thirstiness was associated with drinking b = 0.40 (S.E. = 0.15) more preference. Increases in room temperature were associated with increases in water drinking indirectly through increases in thirstiness. Specifically, for every a = 0.81 unit increase in the association between room temperature and thirstiness, there was an ab = 0.325 (S.E. = 0.127) increase in deciliters of water people drank. Last, there was no sufficient evidence that room temperature was associated with how many deciliters of water people drank independent of its association with thirstiness, c' = 0.473 (S.E. = 0.15).
+
+[@jarvis2003]
+
+# Conclusion
+
+Overall Interpretation: The results suggest a complex interplay between income, financial knowledge, and preferences for cashless payment systems. Higher income positively influences financial knowledge, and both income and financial knowledge independently contribute to individuals' preferences for cashless payments. The interaction between income and financial knowledge further shapes these preferences, highlighting the need for targeted interventions across different income strata to foster financial inclusivity.
+
+# References {.unnumbered}

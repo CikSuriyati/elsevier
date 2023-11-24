@@ -1,0 +1,42 @@
+---
+title: "try"
+format: html
+editor: visual
+---
+
+## Quarto
+
+```{r h1, echo=FALSE, warning=FALSE, message=FALSE}
+## Load Libraries
+library(lavaan)
+library(lavaanPlot)
+library(dplyr) 
+library(tidyr)
+library(knitr)
+library(mvnormalTest)
+library(tidySEM)
+
+mydata3<-read.csv("~/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv")
+
+model5 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  financialKnowledge ~ income' 
+
+fit5 <- sem(model5, data = mydata3)
+h1<-lavaanPlot(model = fit5, coefs = TRUE, stand = TRUE, sig = 0.05)
+h1
+```
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).

@@ -52,46 +52,6 @@
   \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{241,243,245}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
-\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
-\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
@@ -217,9 +177,10 @@ Level, Financial Knowledge, and Preference for Cashless Payment Systems}
 \fnref{fn1}}
 
 
-\affiliation[1]{organization={Pusat Pengajian
-Matematik},addressline={Universiti Teknologi MARA Cawangan
-Pahang},city={27600, Raub},postcode={Pahang, Malaysia},postcodesep={}}
+\affiliation[1]{organization={Pusat Pengajian Matematik, Kolej
+Pengkomputeran, Multimedia dan Matematik},addressline={Universiti
+Teknologi MARA Cawangan Pahang},city={27600, Raub},postcode={Pahang,
+Malaysia},postcodesep={}}
 
 \cortext[cor1]{Corresponding author}
 \fntext[fn1]{This is the first author footnote. Another author footnote,
@@ -251,7 +212,7 @@ informed financial decision-making in an evolving financial ecosystem.
     financial knowledge
 \end{keyword}
 \end{frontmatter}
-    \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[breakable, frame hidden, borderline west={3pt}{0pt}{shadecolor}, interior hidden, enhanced, boxrule=0pt, sharp corners]}{\end{tcolorbox}}\fi
+    \ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[frame hidden, interior hidden, boxrule=0pt, borderline west={3pt}{0pt}{shadecolor}, sharp corners, breakable, enhanced]}{\end{tcolorbox}}\fi
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -533,68 +494,6 @@ finance.
 
 \citep{mackinnon2002}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Install and load the required packages}
-
-\FunctionTok{library}\NormalTok{(lavaan)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-This is lavaan 0.6-16
-lavaan is FREE software! Please report any bugs.
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(semTools)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
- 
-\end{verbatim}
-
-\begin{verbatim}
-###############################################################################
-\end{verbatim}
-
-\begin{verbatim}
-This is semTools 0.5-6
-\end{verbatim}
-
-\begin{verbatim}
-All users of R (or SEM) are invited to submit functions or ideas for functions.
-\end{verbatim}
-
-\begin{verbatim}
-###############################################################################
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{d}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"\textasciitilde{}/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv"}\NormalTok{)}
-
-\CommentTok{\# Define the model for mediation and moderation}
-\NormalTok{model }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}}
-\StringTok{  financialKnowledge =\textasciitilde{} e1+e2+e4+e5+e6+e7+e8+e9}
-\StringTok{  income =\textasciitilde{} d1+d3+d4+d5+d6+d7+d8+d9}
-\StringTok{  preference =\textasciitilde{} b2 + b4+ b6 + b7}
-
-\StringTok{  \# Mediation model}
-\StringTok{  financialKnowledge \textasciitilde{} income}
-\StringTok{  preference \textasciitilde{} c*income + b*financialKnowledge}
-\StringTok{\textquotesingle{}}
-
-\CommentTok{\# Fit the model}
-\NormalTok{fit }\OtherTok{\textless{}{-}} \FunctionTok{sem}\NormalTok{(model, }\AttributeTok{data =}\NormalTok{ d)}
-
-\CommentTok{\# Obtain summary of the model}
-\FunctionTok{summary}\NormalTok{(fit, }\AttributeTok{standardized =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 lavaan 0.6.16 ended normally after 38 iterations
 
@@ -678,21 +577,6 @@ Variances:
    .preference        0.511    0.066    7.768    0.000    0.613    0.613
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\# Test for mediation and moderation effects}
-\NormalTok{med\_mod\_effects }\OtherTok{\textless{}{-}} \FunctionTok{modificationindices}\NormalTok{(fit)}
-
-\CommentTok{\# Display modification indices}
-\CommentTok{\#print(med\_mod\_effects, details = TRUE)}
-
-\CommentTok{\# Calculate indirect effect manually}
-\NormalTok{indirect\_effect }\OtherTok{\textless{}{-}} \FunctionTok{coef}\NormalTok{(fit)[}\StringTok{"c:income"}\NormalTok{] }\SpecialCharTok{*} \FunctionTok{coef}\NormalTok{(fit)[}\StringTok{"b:financial\_knowledge"}\NormalTok{]}
-\CommentTok{\# Display indirect effect}
-\FunctionTok{cat}\NormalTok{(}\StringTok{"Indirect Effect:"}\NormalTok{, indirect\_effect, }\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
 Indirect Effect: NA 
 \end{verbatim}
@@ -706,12 +590,22 @@ The analysis utilized a structural equation modeling (SEM) approach with
 the lavaan package in R to investigate relationships between income,
 financial knowledge, and preferences for cashless payment systems.
 
-Mediation Hypothesis (H1):
+Moderation Hypothesis (H1):
 
 H1 Result: The results indicate a significant positive relationship
 between financial knowledge and income (β = 0.879, p \textless{} 0.05).
 Interpretation: Higher income is associated with greater financial
 knowledge.
+
+\begin{figure}
+
+{\centering \includegraphics{plot.png}
+
+}
+
+\caption{h1}
+
+\end{figure}
 
 Mediation Hypothesis (H2):
 
@@ -720,6 +614,16 @@ preferences (β = 0.473, p \textless{} 0.01).
 
 Interpretation: Individuals with higher financial knowledge are more
 likely to prefer cashless payment methods.
+
+\begin{figure}
+
+{\centering \includegraphics{plot2.png}
+
+}
+
+\caption{h2}
+
+\end{figure}
 
 Combined Moderation and Mediation Hypothesis (H3):
 
@@ -746,97 +650,6 @@ through financial knowledge is significant (Indirect Effect β = 0.15, p
 
 Interpretation: Financial knowledge partially mediates the relationship
 between income and cashless payment preferences.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(tidyverse)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
--- Attaching core tidyverse packages ------------------------ tidyverse 2.0.0 --
-v dplyr     1.1.2     v readr     2.1.4
-v forcats   1.0.0     v stringr   1.5.0
-v ggplot2   3.4.2     v tibble    3.2.1
-v lubridate 1.9.2     v tidyr     1.3.0
-v purrr     1.0.2     
--- Conflicts ------------------------------------------ tidyverse_conflicts() --
-x readr::clipboard()  masks semTools::clipboard()
-x dplyr::filter()     masks stats::filter()
-x dplyr::group_rows() masks kableExtra::group_rows()
-x dplyr::lag()        masks stats::lag()
-i Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(knitr)}
-\FunctionTok{library}\NormalTok{(lavaan)}
-\FunctionTok{library}\NormalTok{(psych)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-
-Attaching package: 'psych'
-
-The following objects are masked from 'package:ggplot2':
-
-    %+%, alpha
-
-The following objects are masked from 'package:semTools':
-
-    reliability, skew
-
-The following object is masked from 'package:lavaan':
-
-    cor2cov
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(MBESS)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-
-Attaching package: 'MBESS'
-
-The following object is masked from 'package:psych':
-
-    cor2cov
-
-The following object is masked from 'package:lavaan':
-
-    cor2cov
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{d}\OtherTok{\textless{}{-}}\FunctionTok{read.csv}\NormalTok{(}\StringTok{"\textasciitilde{}/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv"}\NormalTok{)}
-\NormalTok{mod1 }\OtherTok{\textless{}{-}} \StringTok{"}
-\StringTok{      financialKnowledge =\textasciitilde{} e1+e2+e4+e5+e6+e7+e8+e9}
-\StringTok{      income =\textasciitilde{} d1+d3+d4+d5+d6+d7+d8+d9}
-\StringTok{      preference =\textasciitilde{} b2 + b4+ b6 + b7}
-\StringTok{      }
-\StringTok{        \# a path}
-\StringTok{         income \textasciitilde{} a * financialKnowledge}
-
-\StringTok{         \# b path}
-\StringTok{         preference \textasciitilde{} b * income}
-
-\StringTok{         \# c prime path }
-\StringTok{         preference \textasciitilde{} cp * financialKnowledge}
-
-\StringTok{         \# indirect and total effects}
-\StringTok{         ab := a * b}
-\StringTok{         total := cp + ab"}
-
-\NormalTok{fsem1 }\OtherTok{\textless{}{-}} \FunctionTok{sem}\NormalTok{(mod1, }\AttributeTok{data =}\NormalTok{ d)}
-\FunctionTok{summary}\NormalTok{(fsem1, }\AttributeTok{standardized =} \ConstantTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 lavaan 0.6.16 ended normally after 37 iterations
@@ -925,13 +738,6 @@ Defined Parameters:
     ab                0.326    0.128    2.549    0.011    0.246    0.246
     total             0.799    0.087    9.203    0.000    0.602    0.602
 \end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{parameterestimates}\NormalTok{(fsem1, }\AttributeTok{boot.ci.type =} \StringTok{"bca.simple"}\NormalTok{, }\AttributeTok{standardized =} \ConstantTok{TRUE}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
-  \FunctionTok{kable}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{tabular}{l|l|l|l|r|r|r|r|r|r|r|r|r}
 \hline
@@ -1034,13 +840,6 @@ ab & := & a*b & ab & 0.3257936 & 0.1278314 & 2.548620 & 0.0108150 & 0.0752487 & 
 total & := & cp+ab & total & 0.7988216 & 0.0868048 & 9.202503 & 0.0000000 & 0.6286872 & 0.9689559 & 0.6024674 & 0.6024674 & 0.6024674\\
 \hline
 \end{tabular}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{\#Plot the mediation effect}
-\CommentTok{\#with(d, mediation(x = financialKnowledge, mediator = income, dv = preference))}
-\end{Highlighting}
-\end{Shaded}
 
 Interpretation
 

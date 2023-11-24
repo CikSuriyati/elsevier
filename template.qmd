@@ -141,7 +141,8 @@ mydata<-labelled(
 ```{r echo=FALSE, message=FALSE}
 #| tbl-cap: Cronbach alpha values
 #| label: tbl-1
-#| 
+
+library(xlsx)
 library(psych)
 library(haven)
 library(readr)
@@ -186,8 +187,9 @@ knitr::kable(ca)
 #| fig-cap: Graph of Age, Gender, and Preferences Mode of Payment
 #| fig-align: center
 #| out-width: 50%
-
+library(xlsx)
 library(psych)
+library(patchwork)
 library(haven)
 library(readr)
 library(dplyr)
@@ -215,11 +217,32 @@ financialKnowledge <- select(mydata, 29:37)
 mydata3<-cbind(mydata2, mydata)
 write.csv(mydata3, "~/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv", row.names=FALSE)
 
-ggplot(mydata3, aes(Age, fill = Gender)) +geom_bar()+ coord_flip()+theme_bw()
+#ggplot(mydata3, aes(Age, fill = Gender)) +geom_bar()+ coord_flip()+theme_bw()
+#ggplot(mydata3, aes(factor(Preference), fill = Gender)) +geom_bar()+theme_bw()
+
+fig1<-mydata3 %>%
+  count(Preference, Gender) %>%
+  group_by(Gender) %>%
+  mutate(n1 = paste0(round(n/sum(n) * 100), "%")) %>%
+  ggplot() + aes(factor(Preference), n, fill = Gender) + 
+  geom_col(width = .7) + 
+  geom_text(aes(label = n), position = position_stack(vjust = 0.5), size = 3) +coord_flip()+theme_bw()
+
+
+fig2<-mydata3 %>%
+  count(Age, Gender) %>%
+  group_by(Gender) %>%
+  mutate(n1 = paste0(round(n/sum(n) * 100), "%")) %>%
+  ggplot() + aes(Age, n, fill = Gender) + 
+  geom_col(width = .7) + 
+  geom_text(aes(label =n1), position = position_stack(vjust = 0.5), size = 2) +coord_flip()+theme_bw()
+
+fig1
+fig2
 ```
 
 
-According to @fig-1 , (106) respondents, or most of them, are between the ages of (18) and (24). A total of (37) female respondents and (32) male respondents out of the (106) total respondents choose cashless payments as their preferred method of payment, however only (12) male respondents and (25) female respondents prefer utilising cash as their preferred method of payment. The second most responders, with a total of (75) responses, are between the ages of (25) and (31). The average age of the responses for both men and women in this age range is (22), and the average age for men and women in this age range is (24), however (15) men and (24) women still choose to pay with cash. The third-highest respondent's age is also between the ages of (39) and (45). However, a total of (15) male and (13) female respondents from this age group prefer utilising cash as their preferred way of payment, while the number of respondents who prefer using cashless payment methods is (18) and (17), respectively. Moreover, for respondents in the interval age of 32-38 years old has a total of (54) respondents and this interval of age , male is prefer more using cashless with a total of (19) respondents rather than female respondents with a total of (14) respondents but , male in this interval of age is not prefer using cashless and they prefer more using cash with a total of (7) respondents rather than female respondents with a total of (14) respondents. In this interval of age, the number of female respondents for cash or cashless is the same with a total of (14) for each both cashless and cash as their preferences mode of payment. Additionally, for respondents that is below 18 years old have a total of (30) respondents. From these (30) respondents, male and female respondents prefer using cash rather than cashless with a total of (13) and (10) respectively. But for cashless as the preferences mode of payment, they have the least with a total of (5) and (2) respondents for male and female respectively. On top of that, a total of (22) respondents are between the ages of (46) and (52). Given a total of (9) female respondents and (4) male respondents, respectively, women are more likely than men to prefer using cashless payment methods. However, there were (4) responders who were female and (5) who were male for the cash payment decision.
+According to fig 1 , (106) respondents, or most of them, are between the ages of (18) and (24). A total of (37) female respondents and (32) male respondents out of the (106) total respondents choose cashless payments as their preferred method of payment, however only (12) male respondents and (25) female respondents prefer utilising cash as their preferred method of payment. The second most responders, with a total of (75) responses, are between the ages of (25) and (31). The average age of the responses for both men and women in this age range is (22), and the average age for men and women in this age range is (24), however (15) men and (24) women still choose to pay with cash. The third-highest respondent's age is also between the ages of (39) and (45). However, a total of (15) male and (13) female respondents from this age group prefer utilising cash as their preferred way of payment, while the number of respondents who prefer using cashless payment methods is (18) and (17), respectively. Moreover, for respondents in the interval age of 32-38 years old has a total of (54) respondents and this interval of age , male is prefer more using cashless with a total of (19) respondents rather than female respondents with a total of (14) respondents but , male in this interval of age is not prefer using cashless and they prefer more using cash with a total of (7) respondents rather than female respondents with a total of (14) respondents. In this interval of age, the number of female respondents for cash or cashless is the same with a total of (14) for each both cashless and cash as their preferences mode of payment. Additionally, for respondents that is below 18 years old have a total of (30) respondents. From these (30) respondents, male and female respondents prefer using cash rather than cashless with a total of (13) and (10) respectively. But for cashless as the preferences mode of payment, they have the least with a total of (5) and (2) respondents for male and female respectively. On top of that, a total of (22) respondents are between the ages of (46) and (52). Given a total of (9) female respondents and (4) male respondents, respectively, women are more likely than men to prefer using cashless payment methods. However, there were (4) responders who were female and (5) who were male for the cash payment decision.
 
 ```{r echo=FALSE, message=FALSE}
 #| label: fig-2
@@ -238,12 +261,13 @@ There are three levels of financial knowledge which are low, medium, and high. A
 #| label: fig-3
 #| fig-cap: Graph of Occupation and Education Level
 #| fig-align: center
-#| out-width: 50%
-
+#| out-width: 70%
+#| fig-width: 100%
+library(stringr)
 library(dplyr)
 library(ggplot2)
 
-ggplot(mydata3, aes(x=EducationLevel, fill=Occupation)) +geom_bar()+theme_bw()+coord_flip()
+ggplot(mydata3, aes(x=str_to_title(EducationLevel, locale = "en"), fill=factor(Preference))) +geom_bar()+theme_bw()+coord_flip()+facet_grid(~Occupation)+ xlab("Education Level")
 ```
 Based on the graph above, most of the respondent’s occupation are employed which has the total of (244) respondents. For other respondent’s occupation are study and unemployed that has the total of (74) and (20) respectively. Furthermore, majority of the employed respondent’s education level is Diploma or Certificate that has the total of (95) followed by (85) and (52) for the Secondary School and Degree. Also, the least of the employed respondents comes from education level for PHD, Master, Primary School and Not Attending School which is (2), (4), (4) and (2) respondents respectively. Other than that, for the most to the least education level of respondents that is still study are Diploma, secondary school, Degree, and Master which are (33), (27), (13) and (1) respondent respectively. Moreover, for unemployed respondent’s education level are secondary school, Diploma, Degree and not attending school which has the total of (20), (10), (6) and (1) respondent respectively.
 
@@ -256,10 +280,9 @@ Based on the graph above, most of the respondent’s occupation are employed whi
 library(dplyr)
 library(ggplot2)
 
-ggplot(mydata3, aes(x=Preference, fill=Age)) +geom_bar()+theme_bw()+facet_wrap(~Gender)
+ggplot(mydata3, aes(x=factor(Preference), fill=Age)) +geom_bar()+theme_bw()+facet_wrap(~Gender)
 ```
 Based on the graph above, for cashless payment method is more likely to choose by female rather than male which is a total of (105) of female respondents and (68) male respondents. Based on this cashless payment method, most of the respondent faced technical issues with this cashless payment as a total of (47) females' respondents and (47) male respondents faced this kind of issues. For the least issues faced by the respondents with cashless payment method is victim of hacking with a total of (4) for each female and male respondent. Also, there are (18) females' respondents and (12) male respondents that faced the issue with the security problems for this cashless payment and (6) female and (5) male respondents that faced the issues with the increased costs. Other than that, for the cash as the preference mode of payment, a total of (50) for each female and male respondents choose this kind of method. In this cash payment method, (38) female and (29) male respondents faced the issues about technical. Moreover, the least issues faced by the respondents is victim of hacking which are a total of (3) female respondents and (4) male respondents. After that, for security problems, (4) female respondents and (10) male respondents faced this type of issue. Next, the other issues faced by the respondents is increased costs which has the total of (5) female respondents and (7) male respondents.
-
 
 ```{r echo=FALSE, message=FALSE}
 #| label: fig-5
@@ -273,7 +296,7 @@ library(ggplot2)
 ggplot(mydata3, aes(x=Preference)) +geom_bar()+theme_bw()
 ```
 
-Based on @fig-5, (337) respondents know others mode of payment other than cash, but (18) respondents did not know others mode of payment other than cash. Next, a total of (319) respondents use mobile payment while (36) respondents did not use mobile payment. Other than that, (160) of the respondents are agree that gender factors influence their payment preferences however (195) of the respondents are disagree that gender factors influence their payment preferences. Moreover, (220) respondents experienced issues with the cashless payment method during making a payment and (135) respondents never experienced any issues with cashless payment.
+Based on fig 6, (337) respondents know others mode of payment other than cash, but (18) respondents did not know others mode of payment other than cash. Next, a total of (319) respondents use mobile payment while (36) respondents did not use mobile payment. Other than that, (160) of the respondents are agree that gender factors influence their payment preferences however (195) of the respondents are disagree that gender factors influence their payment preferences. Moreover, (220) respondents experienced issues with the cashless payment method during making a payment and (135) respondents never experienced any issues with cashless payment.
 
 Graph of Income and Preferences Mode of Payment
 
@@ -283,7 +306,7 @@ Based on the graph above, a total of (151) respondents choose cash as mode of pa
 #| label: fig-6
 #| fig-cap: Likert scale.
 #| fig-align: center
-#| out-width: 50%
+#| out-width: 70%
 #| 
 library(psych)
 library(haven)
@@ -322,7 +345,7 @@ names(preference)[5] = "I think that cash is more effective payment method"
 names(preference)[6]  = "I think online payment is important in our daily life"
 names(preference)[7]  = "I think that cashless payments are one of the ways to save time"
 
-#plot_likert(preference)
+plot_likert(preference)
 
 library(reshape)
 library(likert)

@@ -4,7 +4,7 @@ author:
   - name: Suriyati Ujang
     affiliations: 
         - id: uitm
-          name: Pusat Pengajian Matematik
+          name: Pusat Pengajian Matematik, Kolej Pengkomputeran, Multimedia dan Matematik
           address: Universiti Teknologi MARA Cawangan Pahang
           postal-code:  Pahang, Malaysia
           city: 27600, Raub
@@ -34,7 +34,9 @@ format:
       model: 3p
       cite-style: super
 ---
-
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 # Introduction
 
 The pervasive integration of cashless payment systems into modern economies has redefined the landscape of financial transactions, influencing individuals' preferences and behaviors. As societies transition towards digital financial ecosystems, the factors shaping the adoption of cashless payment methods have come under increased scrutiny. This study seeks to unravel the intricate relationships between income level, financial knowledge, and the inclination to use cashless payment systems.
@@ -156,7 +158,7 @@ By utilizing the lavaan package in R, this research aims to contribute empirical
 
 [@mackinnon2002]
 
-```{r}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 # Install and load the required packages
 
 library(lavaan)
@@ -199,9 +201,35 @@ Table descriptive statistics and pearson correlation
 
 The analysis utilized a structural equation modeling (SEM) approach with the lavaan package in R to investigate relationships between income, financial knowledge, and preferences for cashless payment systems.
 
-Mediation Hypothesis (H1):
+Moderation Hypothesis (H1):
 
 H1 Result: The results indicate a significant positive relationship between financial knowledge and income (β = 0.879, p \< 0.05). Interpretation: Higher income is associated with greater financial knowledge.
+
+
+```{r h1, echo=FALSE, warning=FALSE, message=FALSE}
+## Load Libraries
+library(lavaan)
+library(lavaanPlot)
+library(dplyr) 
+library(tidyr)
+library(knitr)
+library(mvnormalTest)
+library(tidySEM)
+
+mydata3<-read.csv("~/Desktop/website/shinymanager/gradeR/elsevier/mydata3.csv")
+
+model5 <- '
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  income =~ d1+d3+d4+d5+d6+d7+d8+d9
+  financialKnowledge ~ income' 
+
+fit5 <- sem(model5, data = mydata3)
+h1<-lavaanPlot(model = fit5, coefs = TRUE, stand = TRUE, sig = 0.05)
+
+# Example for saving to .png
+save_png(h1, "plot.png")
+```
+![h1](plot.png)
 
 Mediation Hypothesis (H2):
 
@@ -209,9 +237,34 @@ H2 Result: Financial knowledge significantly predicts cashless payment preferenc
 
 Interpretation: Individuals with higher financial knowledge are more likely to prefer cashless payment methods.
 
+
+```{r h2, echo=FALSE, warning=FALSE, message=FALSE}
+## Load Libraries
+library(lavaan)
+library(lavaanPlot)
+library(dplyr) 
+library(tidyr)
+library(knitr)
+library(mvnormalTest)
+library(tidySEM)
+model3 <- '
+  preference =~ b2 + b4+ b6 + b7
+  financialKnowledge =~ e1+e2+e4+e5+e6+e7+e8+e9
+  preference ~ financialKnowledge'
+
+fit3 <- sem(model3, data = mydata3)
+h2<-lavaanPlot(model = fit3, coefs = TRUE, stand = TRUE, sig = 0.05)
+# Example for saving to .png
+save_png(h2, "plot2.png")
+```
+![h2](plot2.png)
+
 Combined Moderation and Mediation Hypothesis (H3):
 
 H3 Result: Income moderates the relationship between financial knowledge and cashless payment preferences (Interaction Term β = 0.2, p \< 0.05). Interpretation: The impact of financial knowledge on cashless payment preferences varies across income levels.
+
+
+
 
 Interaction Hypothesis (H4):
 
@@ -225,7 +278,7 @@ Result: The indirect effect of income on cashless payment preferences through fi
 
 Interpretation: Financial knowledge partially mediates the relationship between income and cashless payment preferences.
 
-```{r}
+```{r echo=FALSE, warning=FALSE, message=FALSE}
 library(tidyverse)
 library(knitr)
 library(lavaan)
